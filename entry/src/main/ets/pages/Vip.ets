@@ -21,6 +21,7 @@ struct Vip {
       PageHead({ title: this.title})
       Column(){
 
+
       }
     }
     .width('100%')
