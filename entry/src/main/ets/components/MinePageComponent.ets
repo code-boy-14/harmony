@@ -1,7 +1,5 @@
-@Entry
 @Component
 export struct MinePageComponent {
-  @State message: string = 'Hello World';
 
   build() {
     Column(){
@@ -67,6 +65,7 @@ export struct MinePageComponent {
       .margin('10pv')
       .borderRadius(10)
       .layoutWeight(5)
+      .shadow(ShadowStyle.OUTER_FLOATING_SM)
 
       Column(){
         Row(){
@@ -194,6 +193,7 @@ export struct MinePageComponent {
       .margin('10pv')
       .borderRadius(10)
       .layoutWeight(7)
+      .shadow(ShadowStyle.OUTER_FLOATING_SM)
 
       Column(){
         Row(){
@@ -321,8 +321,9 @@ export struct MinePageComponent {
       .margin('10pv')
       .borderRadius(10)
       .layoutWeight(7)
+      .shadow(ShadowStyle.OUTER_FLOATING_SM)
     }
-    .backgroundColor('#f6f6f6')
+    .backgroundColor('#eee')
     .width('100%')
     .height('100%')
     .justifyContent(FlexAlign.SpaceEvenly)

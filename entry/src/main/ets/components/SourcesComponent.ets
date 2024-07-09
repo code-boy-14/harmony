@@ -160,6 +160,7 @@ export struct SourcesComponent {
             .borderColor('#eee')
           })
         }
+        .margin({top:10})
         .width('100%')
         .backgroundColor('#fff')
         .onTabBarClick((index:number)=>{
@@ -174,24 +175,6 @@ export struct SourcesComponent {
               this.currentIndex = index
           }
         })
-        // .onChange((index: number) => {
-        //   const temp=this.currentIndex
-        //   switch (index){
-        //     case 3:
-        //       router.pushUrl({url:'pages/Shop',params:{title:'贝壳商城',currentIndex:this.currentIndex}})
-        //       this.currentIndex=index
-        //       this.currentIndex=temp
-        //       break
-        //     case 2:
-        //       router.pushUrl({url:'pages/Vip',params:{title:'单词会员',currentIndex:this.currentIndex}})
-        //       this.currentIndex=index
-        //       this.currentIndex=temp
-        //       break
-        //     default:
-        //       this.currentIndex=index
-        //   }
-        //
-        // })
         .barMode(BarMode.Scrollable)
 
       }

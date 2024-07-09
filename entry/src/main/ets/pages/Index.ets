@@ -3,10 +3,12 @@ import { SourcesComponent} from '../components/SourcesComponent'
 import {  WordsComponent } from '../components/WordsComponent'
 import { tabsModels, TabsModels} from '../models/tabsModels'
 import {MinePageComponent} from '../components/MinePageComponent'
+import { DiscoveryComponent } from '../components/DiscoveryComponent'
+
 @Entry
 @Component
 struct Index {
-  @State currentIndex: number = 3
+  @State currentIndex: number = 0
 
 
   @Builder
@@ -31,10 +33,12 @@ struct Index {
             WordsComponent()
           }else if(index==1){
             SourcesComponent()
-          }else if(index==3){
+          }else if(index==2){
+            DiscoveryComponent()
+            // Text('discovery page')
+          }
+          else if(index==3){
             MinePageComponent()
-          }else {
-            Text(item.title+'页面').fontSize(30)
           }
         }
         .backgroundColor('#fff')
