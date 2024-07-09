@@ -2,10 +2,12 @@ import { borderRadiuses } from '@ohos.arkui.node'
 import { SourcesComponent} from '../components/SourcesComponent'
 import {  WordsComponent } from '../components/WordsComponent'
 import { tabsModels, TabsModels} from '../models/tabsModels'
+import {MinePageComponent} from '../components/MinePageComponent'
 @Entry
 @Component
 struct Index {
-  @State currentIndex: number = 1
+  @State currentIndex: number = 3
+
 
   @Builder
   barBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {
@@ -13,6 +15,7 @@ struct Index {
       Image(this.currentIndex == index ? selectedImg : normalImg).width(30).height(30)
       Text(title).fontSize(13).margin({ top: 3 }).fontColor(this.currentIndex==index?'#4fdad6':'#000')
     }
+
   }
 
   build() {
@@ -28,6 +31,8 @@ struct Index {
             WordsComponent()
           }else if(index==1){
             SourcesComponent()
+          }else if(index==3){
+            MinePageComponent()
           }else {
             Text(item.title+'页面').fontSize(30)
           }
