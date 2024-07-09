@@ -3,6 +3,59 @@ export struct MinePageComponent {
 
   build() {
     Column(){
+      Column() { //每日一句
+        // Row() {
+        //   Text('每日一句')
+        //     .fontSize(14)
+        //     .backgroundBlurStyle(BlurStyle.Thin,
+        //       { colorMode: ThemeColorMode.LIGHT, adaptiveColor: AdaptiveColor.DEFAULT, scale: 1.0 })
+        //     .borderRadius(8)
+        //     .fontWeight(FontWeight.Bold)
+        //     .fontColor('#fff')
+        //     .opacity(1)
+        //     .padding({
+        //       top: 4,
+        //       left: 5,
+        //       right: 5,
+        //       bottom: 4
+        //     })//.opacity(0.5)
+        //     .margin({ left: 10 })
+        //   Text('jul.08')
+        //     .margin({ right: 10 })
+        //     .fontColor('#fff')
+        //
+        // }
+        // .width('100%')
+        // .justifyContent(FlexAlign.SpaceBetween)
+        // .alignSelf(ItemAlign.Start)
+
+
+        // Row() {
+        //   Text('5 Very Uncomfortable Truths You Should Know about Life')
+        //     .fontColor('#fff')
+        // }
+        // .width('100%')
+        // .justifyContent(FlexAlign.SpaceAround)
+
+      }
+      .backgroundImage($rawfile('flower.jpg'),
+        ImageRepeat.NoRepeat)
+      .backgroundImageSize(ImageSize.Cover)
+      // .backgroundBrightness({ rate: 0.5, lightUpDegree: -0.1 })
+      .height(100)
+      .justifyContent(FlexAlign.SpaceAround)
+      .margin({
+        top: 10,
+        left: 10,
+        right: 10,
+        bottom: 10
+      })
+      .width('95%')
+      .backgroundColor('#fff')
+      .borderRadius(10)
+      .layoutWeight(2)
+      .shadow(ShadowStyle.OUTER_DEFAULT_LG)
+
       Column(){
         Row(){
           Text("我的账户")
@@ -56,15 +109,19 @@ export struct MinePageComponent {
 
           }
         }
-        .margin({top:20,left:20,right:20})
+        .margin({top:5,left:20,right:20})
         .width('100%')
         .justifyContent(FlexAlign.SpaceAround)
       }
       .backgroundColor('#fff')
-      .width('90%')
+      .width('95%')
       .margin('10pv')
       .borderRadius(10)
-      .layoutWeight(5)
+      .layoutWeight(3.5)
+      .linearGradient({
+        angle: 135,
+        colors: [[0xbbede2, 0.1], [0xFFFFFF, 0.2],]
+      })
       .shadow(ShadowStyle.OUTER_FLOATING_SM)
 
       Column(){
@@ -189,10 +246,14 @@ export struct MinePageComponent {
 
       }
       .backgroundColor('#fff')
-      .width('90%')
+      .width('95%')
       .margin('10pv')
       .borderRadius(10)
-      .layoutWeight(7)
+      .layoutWeight(5.5)
+      .linearGradient({
+        angle: 135,
+        colors: [[0xfe7735, 0.1], [0xFFFFFF, 0.2],]
+      })
       .shadow(ShadowStyle.OUTER_FLOATING_SM)
 
       Column(){
@@ -255,7 +316,7 @@ export struct MinePageComponent {
 
           }
         }
-        .margin({top:20,left:20,right:20})
+        .margin({top:5,left:20,right:20})
         .width('100%')
         .justifyContent(FlexAlign.SpaceAround)
 
@@ -317,10 +378,14 @@ export struct MinePageComponent {
 
       }
       .backgroundColor('#fff')
-      .width('90%')
+      .width('95%')
       .margin('10pv')
       .borderRadius(10)
-      .layoutWeight(7)
+      .layoutWeight(5.5)
+      .linearGradient({
+        angle: 135,
+        colors: [[0xfebfba, 0.1], [0xFFFFFF, 0.2],]
+      })
       .shadow(ShadowStyle.OUTER_FLOATING_SM)
     }
     .backgroundColor('#eee')
