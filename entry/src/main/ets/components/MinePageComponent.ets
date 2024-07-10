@@ -1,3 +1,5 @@
+import { router } from '@kit.ArkUI'
+
 @Component
 @Preview
 export struct MinePageComponent {
@@ -36,6 +38,11 @@ export struct MinePageComponent {
 
           }
           .margin(20)
+          .onClick(()=>{
+            router.pushUrl({
+              url:'pages/Collect'
+            })
+          })
           // Column(){
           //   Row(){
           //     Image($r("app.media.book"))
@@ -59,6 +66,11 @@ export struct MinePageComponent {
 
           }
           .margin(20)
+          .onClick(()=>{
+            router.pushUrl({
+              url:'pages/Order'
+            })
+          })
         }
         .margin({top:5,left:20,right:20})
         .width('100%')
