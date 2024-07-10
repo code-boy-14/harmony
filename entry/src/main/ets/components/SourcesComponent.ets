@@ -43,7 +43,6 @@ function columnBoxStyle() {
 }
 
 
-@Preview
 @Component
 export struct SourcesComponent {
   @Builder

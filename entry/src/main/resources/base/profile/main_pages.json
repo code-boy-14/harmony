@@ -3,6 +3,8 @@
     "pages/Index",
     "pages/Class",
     "pages/Shop",
-    "pages/Commodity"
+    "pages/Commodity",
+    "pages/Collect",
+    "pages/Order"
   ]
 }
