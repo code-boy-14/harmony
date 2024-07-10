@@ -44,7 +44,6 @@ struct Index {
         .borderWidth(1)
       })
 
-
     }
     .animationDuration(0)
     .onChange((index: number) => {

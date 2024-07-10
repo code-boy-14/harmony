@@ -29,7 +29,8 @@ export struct PageHead {
           })
           .width('100%')
           .height('100%')
-          .fontSize(25)
+          .fontSize(24)
+          .fontWeight(600)
           .fontColor('#8a8a8a')
           .textAlign(TextAlign.Center)
         // Row(){
@@ -43,6 +44,10 @@ export struct PageHead {
     .backgroundColor('#fff')
     .width('100%')
     .height(60)
+    .border({
+      width: { bottom: '3px' },
+      color: { bottom: '#DCDCDC' },
+    })
 
   }
 

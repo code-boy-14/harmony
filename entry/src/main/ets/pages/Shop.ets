@@ -27,7 +27,7 @@ struct Shop {
             Column() {
               Text('我的贝壳')
                 .width('100%')
-                .fontSize(12)
+                .fontSize(16)
                 .margin({ bottom: 10 })
                 .textAlign(TextAlign.Start)
 

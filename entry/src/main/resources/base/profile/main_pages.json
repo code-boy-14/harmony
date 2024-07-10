@@ -2,6 +2,7 @@
   "src": [
     "pages/Index",
     "pages/Vip",
-    "pages/Shop"
+    "pages/Shop",
+    "pages/Commodity"
   ]
 }
