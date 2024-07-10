@@ -13,7 +13,6 @@ struct Article {
   r: commodityModel = {} as commodityModel
 
   build() {
-
     Column() {
       /*
        * 导航区

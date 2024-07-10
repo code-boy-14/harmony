@@ -62,7 +62,6 @@ export struct SourcesComponent {
 
   @State currentIndex: number = 0
 
-
   build() {
     Scroll() {
 
@@ -160,16 +159,16 @@ export struct SourcesComponent {
             .borderColor('#eee')
           })
         }
-        .margin({top:10})
+        .margin({ top: 10 })
         .width('100%')
         .backgroundColor('#fff')
-        .onTabBarClick((index:number)=>{
+        .onTabBarClick((index: number) => {
           switch (index) {
             case 3:
               router.pushUrl({ url: 'pages/Shop', params: { title: '贝壳商城', currentIndex: this.currentIndex } })
               break
             case 2:
-              router.pushUrl({ url: 'pages/Vip', params: { title: '单词会员', currentIndex: this.currentIndex } })
+              router.pushUrl({ url: 'pages/Class', params: { title: '精品课程', currentIndex: this.currentIndex } })
               break
             default:
               this.currentIndex = index

@@ -8,7 +8,7 @@ import { DiscoveryComponent } from '../components/DiscoveryComponent'
 @Entry
 @Component
 struct Index {
-  @State currentIndex: number = 3
+  @State currentIndex: number = 1
 
   @Builder
   barBuilder(title: string, index: number, selectedImg: Resource, normalImg: Resource) {

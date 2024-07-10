@@ -1,10 +1,11 @@
 import { PageHead } from '../components/PageHead';
 import { router } from '@kit.ArkUI';
 import { SourceTabParamsModel } from '../models/sourceTabParamsModel';
+import { ClassComponents } from '../components/ClassComponents';
 
 @Entry
 @Component
-struct Vip {
+struct Class {
   @State title: string = ''
 
   onPageShow(): void {
@@ -19,10 +20,16 @@ struct Vip {
   build() {
     Column() {
       PageHead({ title: this.title})
-      Column(){
-
-
+      Scroll(){
+        Column(){
+          ClassComponents()
+        }
       }
+      .scrollBar(BarState.Off)
+      .edgeEffect(EdgeEffect.Spring)
+      .layoutWeight(1)
+      .backgroundColor('#fff')
+
     }
     .width('100%')
     .height('100%')

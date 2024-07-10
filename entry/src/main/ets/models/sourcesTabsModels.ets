@@ -19,7 +19,7 @@ export const sourcesTabsModels:SourcesTabsModels[]=[
   //   title:'教资'
   // },
   {
-    title:'单词会员'
+    title:'精品课程'
   },
   {
     title:'贝壳商城'
