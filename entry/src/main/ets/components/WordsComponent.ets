@@ -1,4 +1,5 @@
 import { borderRadiuses } from '@ohos.arkui.node'
+import { router } from '@kit.ArkUI'
 
 @Preview
 @Component
@@ -15,6 +16,11 @@ export struct WordsComponent{
           .padding({ left: 10 })
           .margin({left:10,right:10})
           .borderRadius(8)
+          .onClick(()=>{
+            router.pushUrl({
+              url:'pages/SearchPage'
+            })
+          })
 
 
         // Text('搜索框')

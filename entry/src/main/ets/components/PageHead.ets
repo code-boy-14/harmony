@@ -33,12 +33,6 @@ export struct PageHead {
           .fontWeight(600)
           .fontColor('#8a8a8a')
           .textAlign(TextAlign.Center)
-        // Row(){
-        // }
-        // // .alignRules({left:{anchor:'__container__',align:HorizontalAlign.Start},
-        // // top:{anchor:'__container__',align:VerticalAlign.Top}})
-        // .height('100%')
-        // .width('100%')
       }
     }
     .backgroundColor('#fff')
