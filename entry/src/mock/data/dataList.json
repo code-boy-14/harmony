@@ -133,28 +133,36 @@
         "course": "CET"
       },
       {
-        "name": "",
+        "name": "商务英语听说",
         "id": "7",
-        "img": "",
-        "price": "",
+        "img": "commercialEn0.jpg",
+        "price": "36.6",
         "description": "",
-        "course": ""
+        "course": "LISTEN"
       },
       {
-        "name": "",
+        "name": "表达与沟通：海外留学英语",
         "id": "8",
-        "img": "",
-        "price": "",
+        "img": "abroad0.png",
+        "price": "50",
         "description": "",
-        "course": ""
+        "course": "LISTEN"
       },
       {
-        "name": "",
+        "name": "印象英美-穿越时空之旅",
         "id": "8",
-        "img": "",
-        "price": "",
+        "img": "culture0.jpg",
+        "price": "12.5",
         "description": "",
-        "course": ""
+        "course": "CULTURE"
+      },
+      {
+        "name": "20世纪美国经典小说赏析",
+        "id": "8",
+        "img": "culture1.jpg",
+        "price": "23",
+        "description": "",
+        "course": "CULTURE"
       }
     ]
   }
