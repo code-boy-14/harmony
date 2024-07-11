@@ -90,57 +90,72 @@
         "id": "1",
         "img": "swiper1.png",
         "price": "0",
-        "description": "主讲老师：建昆 曲根 欧阳萍 贾琨 "
+        "description": "主讲老师：建昆 曲根 欧阳萍 贾琨 ",
+        "course": "CET"
       },
       {
         "name": "24年12月】四级小白班（送零基础语法班+听力刷题班）",
         "id": "2",
         "img": "CET1.png",
         "price": "329",
-        "description": "主讲老师：曲根 欧阳萍 宛瑜老师 Irene "
+        "description": "主讲老师：曲根 欧阳萍 宛瑜老师 Irene ",
+        "course": "CET"
       },{
         "name": "【24年12月】六级小白班（送零基础语法班+听力刷题班）",
         "id": "3",
         "img": "CET2.png",
         "price": "329",
-        "description": "主讲老师：陈曲 苏延奇 欧阳萍 宛瑜老师 Irene"
+        "description": "主讲老师：陈曲 苏延奇 欧阳萍 宛瑜老师 Irene",
+        "course": "CET"
       },
       {
         "name": "【四级历年真题+音频】四级2016-2023年12月真题&音频",
         "id": "4",
         "img": "CET3.png",
         "price": "0",
-        "description": "四级2016-2023年12月真题收录"
+        "description": "四级2016-2023年12月真题收录",
+        "course": "CET"
       },
       {
         "name": "【六级历年真题+音频】六级2016-2023年12月真题&音频",
         "id": "5",
         "img": "CET4.png",
         "price": "0",
-        "description": "六级2016-2023年12月真题收录"
+        "description": "六级2016-2023年12月真题收录",
+        "course": "CET"
       },
       {
         "name": "六级听力真题讲解【15套真题讲解】",
         "id": "6",
         "img": "CET5.png",
         "price": "49",
-        "description": "六级听力精讲，冲刺200+"
+        "description": "六级听力精讲，冲刺200+",
+        "course": "CET"
       },
       {
         "name": "",
         "id": "7",
         "img": "",
         "price": "",
-        "description": ""
+        "description": "",
+        "course": ""
       },
       {
         "name": "",
         "id": "8",
         "img": "",
         "price": "",
-        "description": ""
+        "description": "",
+        "course": ""
+      },
+      {
+        "name": "",
+        "id": "8",
+        "img": "",
+        "price": "",
+        "description": "",
+        "course": ""
       }
-
     ]
   }
 }
