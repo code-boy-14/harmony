@@ -12,7 +12,7 @@ struct Order {
   @State orderList:commodityModel[]=[] as commodityModel[]
 
   //订单的所有id
-  @StorageLink('orderIds') orderIds:referenceModel=AppStorage.get('orderIds') as referenceModel
+  @StorageLink('orderIds') orderIds:string[]=AppStorage.get('orderIds') as string[]
 
   @Builder
   ItemDelete(item:commodityModel){
@@ -26,9 +26,11 @@ struct Order {
     }
     .onClick(()=>{
       this.orderList.splice(this.orderList.findIndex((elem)=>elem==item),1)
-      console.log(item.id)
-      this.orderIds.ids.splice(this.orderIds.ids.findIndex((elem)=>elem==item.id),1)
-      // this.orderIds.ids.slice(this.orderIds.ids.findIndex((elem)=>elem==item.id),1)
+      console.log('id is '+item.id)
+
+      console.log(this.orderIds.toString())
+      console.log(typeof this.orderIds)
+      this.orderIds.splice(this.orderIds.indexOf(item.id),1)
     })
     .height('100%')
     .justifyContent(FlexAlign.Center)

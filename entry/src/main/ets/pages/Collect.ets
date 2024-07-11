@@ -12,14 +12,40 @@ struct Collect {
   @State clctList:classModel[]=[] as classModel[]
 
   //收藏所有的id值
-  @StorageLink('collectIds') clctIds:referenceModel=AppStorage.get('collectIds') as referenceModel
+  @StorageLink('collectIds') clctIds:string[]=AppStorage.get('collectIds') as string[]
+
+  @Builder
+  ItemDelete(item:classModel){
+    Column(){
+      Image($rawfile('remove.png'))
+        .width(30)
+
+      Text('删除')
+        .fontColor(Color.White)
+
+    }
+    .onClick(()=>{
+      this.clctList.splice(this.clctList.findIndex((elem)=>elem==item),1)
+      console.log('id is '+item.id)
+
+      console.log(this.clctIds.toString())
+      console.log(typeof this.clctIds)
+      this.clctIds.splice(this.clctIds.indexOf(item.id),1)
+    })
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+    .padding({left:20,right:20})
+    .backgroundColor(Color.Red)
+  }
+
+
 
   build() {
     Column(){
       PageHead({title:'收藏'})
       Column(){
         List(){
-          ForEach(this.clctList,(item:commodityModel)=>{
+          ForEach(this.clctList,(item:classModel)=>{
             ListItem(){
               Row() {
                 Image($rawfile(item.img))
@@ -53,6 +79,8 @@ struct Collect {
                 color: { bottom: '#DCDCDC' },
               })
             }
+            .swipeAction({end:this.ItemDelete(item),edgeEffect:SwipeEdgeEffect.Spring})
+
           })
         }
         .edgeEffect(EdgeEffect.Spring)
