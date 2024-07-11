@@ -1,7 +1,7 @@
 import { ParamsModel } from '../models/paramsModel'
 import { commodityModel } from '../models/commodityModel'
 
-import { router } from '@kit.ArkUI'
+import { promptAction, router } from '@kit.ArkUI'
 import request from '../utils/request'
 import { ReqCommodityModel } from '../models/requestModel'
 
@@ -64,15 +64,15 @@ struct Article {
               .fontSize(16)
               .fontWeight(600)
               .fontColor('#000')
-              .margin({left: 30})
+              .margin({ left: 30 })
               .textAlign(TextAlign.Start)
 
-            Text(this.r.price+'贝壳')
+            Text(this.r.price + '贝壳')
               .width('100%')
               .fontSize(16)
               .fontWeight(700)
               .fontColor('#15c5a1')
-              .margin({ top: 10, left: 30, bottom: 10})
+              .margin({ top: 10, left: 30, bottom: 10 })
               .textAlign(TextAlign.Start)
           }
           .width('100%')
@@ -92,7 +92,7 @@ struct Article {
               .fontSize(16)
               .fontColor('#686868')
               .fontWeight(500)
-              .margin({left:25,right:25})
+              .margin({ left: 25, right: 25 })
               .lineHeight(24)
           }
         }
@@ -103,16 +103,35 @@ struct Article {
       .backgroundColor('#fff')
 
       Stack({ alignContent: Alignment.Bottom }) {
-          Button() {
-            Text('立 即 兑 换')
-              .fontColor('#fff')
+        Button() {
+          Text('立 即 兑 换')
+            .fontColor('#fff')
+        }
+        .width('100%')
+        .height(40)
+        .type(ButtonType.Normal)
+        .borderRadius(20)
+        .backgroundColor('#15c5a1')
+        .shadow({
+          radius: 10,
+          color: Color.Gray,
+          offsetX: 5,
+          offsetY: 5
+        })
+        .onClick(() => {
+          const ids: string[] = AppStorage.get('orderIds') || []
+          const result = ids.find((id: string) => id == this.r.id)
+          if (!result) {
+              AppStorage.SetOrCreate('orderIds',[...ids,this.r.id])
+            promptAction.showToast({
+              message:'兑换成功~'
+            })
+          }else{
+            promptAction.showToast({
+              message:'已经兑换过了~'
+            })
           }
-          .width('100%')
-          .height(40)
-          .type(ButtonType.Normal)
-          .borderRadius(20)
-          .backgroundColor('#15c5a1')
-          .shadow({ radius: 10, color: Color.Gray, offsetX: 5, offsetY: 5 })
+        })
 
       }
       .height(70)

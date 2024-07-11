@@ -8,6 +8,8 @@ export struct ClassComponents {
   @State
   classData: classModel[] = []
 
+
+
   build() {
 
     Column() {
@@ -80,21 +82,19 @@ export struct ClassComponents {
 
               Row() {
                 Text('¥' + item.price)
-
-                  .fontSize(20)
+                  .fontSize(25)
                   .fontWeight(600)
                   .fontColor('#15c5a1')
                   .textAlign(TextAlign.Start)
 
                 Button() {
                   Image($rawfile('collect.png'))
-                    .width(20)
+                    .width(25)
                 }
-                .width(25)
-                .height(25)
+                .width(30)
+                .height(30)
                 .type(ButtonType.Normal)
-                .borderRadius(20)
-                .backgroundColor('#15c5a1')
+                .backgroundColor('#fff')
 
               }
               .width('100%')
