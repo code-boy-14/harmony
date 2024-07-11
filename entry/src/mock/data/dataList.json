@@ -147,8 +147,15 @@
         "price": "",
         "description": "",
         "course": ""
+      },
+      {
+        "name": "",
+        "id": "8",
+        "img": "",
+        "price": "",
+        "description": "",
+        "course": ""
       }
-
     ]
   }
 }
