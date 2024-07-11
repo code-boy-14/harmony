@@ -5,6 +5,7 @@
     "pages/Shop",
     "pages/Commodity",
     "pages/Collect",
-    "pages/Order"
+    "pages/Order",
+    "pages/SearchPage"
   ]
 }
