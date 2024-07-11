@@ -17,42 +17,8 @@ struct Shop {
   build() {
     Column(){
       PageHead({title:this.title})
-      Scroll() {
-        Column() {
-          Row() {
-            Image($rawfile('personal.png'))
-              .layoutWeight(1)
-              .borderRadius(40)
-
-            Column() {
-              Text('我的贝壳')
-                .width('100%')
-                .fontSize(16)
-                .margin({ bottom: 10 })
-                .textAlign(TextAlign.Start)
-
-              Text('0')
-                .width('100%')
-                .fontSize(30)
-                .fontWeight(700)
-                .margin({ left: 30 })
-                .textAlign(TextAlign.Start)
-            }
-            .layoutWeight(3)
-            .padding(15)
-          }
-          .backgroundColor('#e5f7f9')
-          .width('100%')
-          .padding(15)
-          .justifyContent(FlexAlign.Start)
-
           ShopComponents()
-        }
-      }
-      .scrollBar(BarState.Off)
-      .edgeEffect(EdgeEffect.Spring)
-      .layoutWeight(1)
-      .backgroundColor('#fff')
+
     }
     .height('100%')
     .width('100%')

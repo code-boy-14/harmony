@@ -129,7 +129,7 @@ export struct ClassComponents {
        * 考研
        */
       Column() {
-        Text('精选考研课程')
+        Text('精选文学')
           .width('100%')
           .fontSize(20)
           .fontWeight(600)
@@ -138,7 +138,7 @@ export struct ClassComponents {
           .margin({ bottom: 10 })
 
         ForEach(this.classData, (item: classModel) => {
-          if (item.course == 'KY') {
+          if (item.course != 'CET') {
             Row() {
               Image($rawfile(item.img))
                 .layoutWeight(3)
