@@ -14,6 +14,29 @@ struct Order {
   //订单的所有id
   @StorageLink('orderIds') orderIds:referenceModel=AppStorage.get('orderIds') as referenceModel
 
+  @Builder
+  ItemDelete(item:commodityModel){
+    Column(){
+      Image($rawfile('remove.png'))
+        .width(30)
+
+      Text('删除')
+        .fontColor(Color.White)
+
+    }
+    .onClick(()=>{
+      this.orderList.splice(this.orderList.findIndex((elem)=>elem==item),1)
+      console.log(item.id)
+      this.orderIds.ids.splice(this.orderIds.ids.findIndex((elem)=>elem==item.id),1)
+      // this.orderIds.ids.slice(this.orderIds.ids.findIndex((elem)=>elem==item.id),1)
+    })
+    .height('100%')
+    .justifyContent(FlexAlign.Center)
+    .padding({left:20,right:20})
+    .backgroundColor(Color.Red)
+  }
+
+
   build() {
     Column(){
       PageHead({title:'订单'})
@@ -41,6 +64,8 @@ struct Order {
                     .fontWeight(600)
                     .fontColor('#15c5a1')
                     .textAlign(TextAlign.Start)
+
+
                 }
                 .layoutWeight(1)
                 .padding(10)
@@ -53,6 +78,8 @@ struct Order {
                 color: { bottom: '#DCDCDC' },
               })
             }
+            .swipeAction({end:this.ItemDelete(item),edgeEffect:SwipeEdgeEffect.Spring})
+
           })
         }
         .edgeEffect(EdgeEffect.Spring)
