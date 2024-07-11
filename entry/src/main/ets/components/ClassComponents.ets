@@ -8,8 +8,6 @@ export struct ClassComponents {
   @State
   classData: classModel[] = []
 
-
-
   build() {
 
     Column() {
@@ -66,60 +64,65 @@ export struct ClassComponents {
           .margin({ bottom: 10 })
 
         ForEach(this.classData, (item: classModel) => {
-          Row() {
-            Image($rawfile(item.img))
-              .layoutWeight(3)
-              .borderRadius(8)
+          if (item.course == 'CET') {
 
-            Column() {
-              Text(item.name)
-                .width('100%')
-                .fontSize(16)
-                .fontWeight(600)
-                .maxLines(2)
-                .margin({ bottom: 20 })
-                .textAlign(TextAlign.Start)
 
-              Row() {
-                Text('¥' + item.price)
-                  .fontSize(25)
+            Row() {
+              Image($rawfile(item.img))
+                .layoutWeight(3)
+                .borderRadius(8)
+
+              Column() {
+                Text(item.name)
+                  .width('100%')
+                  .fontSize(16)
                   .fontWeight(600)
-                  .fontColor('#15c5a1')
+                  .maxLines(2)
+                  .margin({ bottom: 20 })
                   .textAlign(TextAlign.Start)
 
-                Button() {
-                  Image($rawfile('collect.png'))
-                    .width(25)
-                }
-                .width(30)
-                .height(30)
-                .type(ButtonType.Normal)
-                .backgroundColor('#fff')
-                .onClick(() => {
-                  const ids: string[] = AppStorage.get('collectIds') || []
-                  const result = ids.find((id: string) => id == item.id)
-                  if (!result) {
-                    AppStorage.SetOrCreate('collectIds',[...ids,item.id])
-                    promptAction.showToast({
-                      message:'收藏成功~'
-                    })
-                  }else{
-                    promptAction.showToast({
-                      message:'已经收藏过了~'
-                    })
-                  }
-                })
+                Row() {
+                  Text('¥' + item.price)
+                    .fontSize(25)
+                    .fontWeight(600)
+                    .fontColor('#15c5a1')
+                    .textAlign(TextAlign.Start)
 
+                  Button() {
+                    Image($rawfile('collect.png'))
+                      .width(25)
+                  }
+                  .width(30)
+                  .height(30)
+                  .type(ButtonType.Normal)
+                  .backgroundColor('#fff')
+                  .onClick(() => {
+                    const ids: string[] = AppStorage.get('collectIds') || []
+                    const result = ids.find((id: string) => id == item.id)
+                    if (!result) {
+                      AppStorage.SetOrCreate('collectIds', [...ids, item.id])
+                      promptAction.showToast({
+                        message: '收藏成功~'
+                      })
+                    } else {
+                      promptAction.showToast({
+                        message: '已经收藏过了~'
+                      })
+                    }
+                  })
+
+                }
+                .width('100%')
+                .justifyContent(FlexAlign.SpaceBetween)
               }
-              .width('100%')
-              .justifyContent(FlexAlign.SpaceBetween)
+              .layoutWeight(4)
+              .padding(10)
             }
-            .layoutWeight(4)
-            .padding(10)
+            .width('100%')
+            .height('18%')
           }
-          .width('100%')
-          .height('18%')
         })
+
       }
       .margin(20)
 

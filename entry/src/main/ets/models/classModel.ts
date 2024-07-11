@@ -4,4 +4,5 @@ export interface classModel {
   img: string
   price: string
   description: string
+  course: string
 }
