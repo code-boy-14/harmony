@@ -61,12 +61,11 @@ struct Collect {
       .layoutWeight(1)
     }
     .width('100%')
-    .height('100%')
   }
 
   async aboutToAppear(){
     const ids:string[]=AppStorage.get('collectIds')||[]
-    const listResult=await request.get<string, ReqClassModel>('/commodity')
+    const listResult=await request.get<string, ReqClassModel>('/class')
     for(let id of ids){
       let result=listResult.data.find((item:classModel)=>item.id==id)
       if(result){

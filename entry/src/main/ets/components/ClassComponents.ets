@@ -1,7 +1,7 @@
 import { classModel } from '../models/classModel'
 import { ReqClassModel } from '../models/requestModel'
 import request from '../utils/request'
-import { router } from '@kit.ArkUI'
+import { promptAction, router } from '@kit.ArkUI'
 
 @Component
 export struct ClassComponents {
@@ -95,6 +95,20 @@ export struct ClassComponents {
                 .height(30)
                 .type(ButtonType.Normal)
                 .backgroundColor('#fff')
+                .onClick(() => {
+                  const ids: string[] = AppStorage.get('collectIds') || []
+                  const result = ids.find((id: string) => id == item.id)
+                  if (!result) {
+                    AppStorage.SetOrCreate('collectIds',[...ids,item.id])
+                    promptAction.showToast({
+                      message:'收藏成功~'
+                    })
+                  }else{
+                    promptAction.showToast({
+                      message:'已经收藏过了~'
+                    })
+                  }
+                })
 
               }
               .width('100%')
