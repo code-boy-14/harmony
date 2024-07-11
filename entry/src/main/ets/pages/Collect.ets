@@ -1,14 +1,15 @@
 import { PageHead } from '../components/PageHead';
+import { classModel } from '../models/classModel';
 import { commodityModel } from '../models/commodityModel';
 import { referenceModel } from '../models/referenceMode';
-import { ReqCommodityModel } from '../models/requestModel';
+import { ReqClassModel, ReqCommodityModel } from '../models/requestModel';
 import request from '../utils/request';
 
 @Entry
 @Component
 struct Collect {
   //收藏列表的状态变量
-  @State clctList:commodityModel[]=[] as commodityModel[]
+  @State clctList:classModel[]=[] as classModel[]
 
   //收藏所有的id值
   @StorageLink('collectIds') clctIds:referenceModel=AppStorage.get('collectIds') as referenceModel
@@ -65,9 +66,9 @@ struct Collect {
 
   async aboutToAppear(){
     const ids:string[]=AppStorage.get('collectIds')||[]
-    const listResult=await request.get<string, ReqCommodityModel>('/commodity')
+    const listResult=await request.get<string, ReqClassModel>('/commodity')
     for(let id of ids){
-      let result=listResult.data.find((item:commodityModel)=>item.id==id)
+      let result=listResult.data.find((item:classModel)=>item.id==id)
       if(result){
         this.clctList.push(result)
       }
