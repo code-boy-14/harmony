@@ -1,30 +1,29 @@
 import { commodityModel } from '../models/commodityModel'
 import { ReqCommodityModel } from '../models/requestModel'
 import request from '../utils/request'
-import { router } from '@kit.ArkUI'
+import { promptAction, router } from '@kit.ArkUI'
 import { PullToRefresh, PullToRefreshConfigurator } from '@ohos/pulltorefresh'
 
 
 @Component
 export struct ShopComponents {
-  @State
-  commodityData: commodityModel[] = []
+  @State commodityData: commodityModel[] = []
   private scroller: Scroller = new Scroller()
   // 每页显示的条数
-  private itemsPerPage: number = 5
+  private itemsPerPage: number = 6
   // 初始数据
   @State data: commodityModel[] = this.commodityData
   // 当前页，初始值第一页
-  private currentPage: number = 1
+  @State private currentPage: number = 1
   // 计算共有多少页
-  private totalPage: number = Math.ceil(this.commodityData.length / this.itemsPerPage)
+  @State private totalPage: number = Math.ceil(this.commodityData.length / this.itemsPerPage)//0 here
   // 第一步：实例化 PullToRefreshConfigurator
   private refreshConfigurator: PullToRefreshConfigurator = new PullToRefreshConfigurator()
 
   build() {
     Column() {
       PullToRefresh({
-        data: $data,
+        data: this.data,
         scroller: this.scroller,
         // 第二步：注册 refreshConfigurator
         refreshConfigurator: this.refreshConfigurator,
@@ -44,22 +43,30 @@ export struct ShopComponents {
           })
         },
         onLoadMore: () => {
+          console.log(this.currentPage.toString())
           return new Promise((resolve) => {
             setTimeout(() => {
               resolve('')
+              // console.log(this.currentPage+'crnt')
+              // console.log(this.totalPage+'total')
               if (this.currentPage < this.totalPage) {
                 this.data = [
                   ...this.data,
                   ...this.commodityData.slice(this.itemsPerPage * this.currentPage,
-                    this.itemsPerPage * this.currentPage + this.itemsPerPage)
+                    this.itemsPerPage * this.currentPage+this.itemsPerPage )
                 ]
+                // console.log(this.data.length+'')
                 this.currentPage++
+
               } else {
                 console.log('到底了~')
+                promptAction.showToast({
+                  message:'到底了~'
+                })
                 // 第三步：设置不能继续上拉
                 this.refreshConfigurator.setHasLoadMore(false)
               }
-            }, 2000)
+            }, 1000)
           })
         },
         customLoad: null,
@@ -74,41 +81,41 @@ export struct ShopComponents {
       /*
        * 我的贝壳
        */
-      ListItem() {
-        Column() {
-          Row() {
-            Image($rawfile('personal.png'))
-              .layoutWeight(1)
-              .borderRadius(40)
-
-            Column() {
-              Text('我的贝壳')
-                .width('100%')
-                .fontSize(16)
-                .margin({ bottom: 10 })
-                .textAlign(TextAlign.Start)
-
-              Text('0')
-                .width('100%')
-                .fontSize(30)
-                .fontWeight(700)
-                .margin({ left: 30 })
-                .textAlign(TextAlign.Start)
-            }
-            .layoutWeight(3)
-            .padding(15)
-          }
-          .backgroundColor('#e5f7f9')
-          .width('100%')
-          .padding(15)
-          .justifyContent(FlexAlign.Start)
-        }
-      }
+      // ListItem() {
+      //   Column() {
+      //     Row() {
+      //       Image($rawfile('personal.png'))
+      //         .layoutWeight(1)
+      //         .borderRadius(40)
+      //
+      //       Column() {
+      //         Text('我的贝壳')
+      //           .width('100%')
+      //           .fontSize(16)
+      //           .margin({ bottom: 10 })
+      //           .textAlign(TextAlign.Start)
+      //
+      //         Text('0')
+      //           .width('100%')
+      //           .fontSize(30)
+      //           .fontWeight(700)
+      //           .margin({ left: 30 })
+      //           .textAlign(TextAlign.Start)
+      //       }
+      //       .layoutWeight(3)
+      //       .padding(15)
+      //     }
+      //     .backgroundColor('#e5f7f9')
+      //     .width('100%')
+      //     .padding(15)
+      //     .justifyContent(FlexAlign.Start)
+      //   }
+      // }
 
       /*
        * 商品列表
        */
-      ForEach(this.commodityData, (item: commodityModel) => {
+      ForEach(this.data, (item: commodityModel) => {
         ListItem() {
           Row() {
             Image($rawfile(item.img))
@@ -162,6 +169,17 @@ export struct ShopComponents {
 
   async aboutToAppear() {
     let result = await request.get<string, ReqCommodityModel>('/commodity')
-    this.commodityData = result.data
+    this.commodityData=result.data
+    // this.commodityData = result.data.slice(this.itemsPerPage * this.currentPage-this.itemsPerPage,
+    //   this.itemsPerPage * this.currentPage+1)
+    this.data=this.commodityData.slice(0,this.itemsPerPage)
+    console.log(this.data.length+'')
+    // console.log(this.data.length+'')
+    console.log(this.totalPage+'')
+    this.totalPage = Math.ceil(this.commodityData.length / this.itemsPerPage)
+    // console.log(this.totalPage.toString())
+    // console.log(JSON.stringify(this.commodityData))
+    // console.log((this.itemsPerPage * this.currentPage-this.itemsPerPage).toString())
+    // console.log((this.itemsPerPage * this.currentPage).toString())
   }
 }

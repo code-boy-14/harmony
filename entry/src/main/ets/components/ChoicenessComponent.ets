@@ -41,8 +41,8 @@ export struct ChoicenessComponent {
   async  aboutToAppear() {
     const result = await request.get<string,ReqChoicenessModel>('/jingxuan')
     this.choicenessData=result.data
-    console.log(JSON.stringify(result))
-    console.log(JSON.stringify(this.choicenessData))
+    // console.log(JSON.stringify(result))
+    // console.log(JSON.stringify(this.choicenessData))
   }
 
 
