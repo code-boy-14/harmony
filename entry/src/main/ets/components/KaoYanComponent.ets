@@ -1,13 +1,15 @@
-import { KaoyanTabsModels, kaoyanTabsModels } from '../models/kaoyanTabsModels'
-
+import { KaoyanTabsModels } from '../models/kaoyanTabsModels'
+import { ReqKaoyanModel } from '../models/requestModel'
+import request from '../utils/request'
 @Component
 export struct kaoYanComponent{
+  @State kaoyanData:KaoyanTabsModels[]=[] as KaoyanTabsModels[]
   build() {
     Grid(){
-      ForEach(kaoyanTabsModels,(item:KaoyanTabsModels,index:number)=>{
+      ForEach(this.kaoyanData,(item:KaoyanTabsModels,index:number)=>{
         GridItem(){
           Column(){
-            Image(item.img)
+            Image($rawfile(item.img))
 
             Text(item.title)
               .width('100%')
@@ -30,6 +32,11 @@ export struct kaoYanComponent{
     .columnsGap(10)
     .rowsGap(15)
     .columnsTemplate('1fr 1fr')
+  }
+
+  async  aboutToAppear() {
+    const result = await request.get<string,ReqKaoyanModel>('/kaoyan')
+    this.kaoyanData=result.data
   }
 
 }

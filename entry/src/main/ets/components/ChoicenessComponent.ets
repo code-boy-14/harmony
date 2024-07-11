@@ -1,15 +1,20 @@
-import { ChoicenessModels, choicenessModels } from '../models/choicenessModels'
+import { ChoicenessModels } from '../models/choicenessModels'
+import { KaoyanTabsModels } from '../models/kaoyanTabsModels'
+import { ReqChoicenessModel } from '../models/requestModel'
+import request from '../utils/request'
 
 @Component
 export struct ChoicenessComponent {
+  @State choicenessData:ChoicenessModels[]=[] as ChoicenessModels[]
+
   build() {
     List(){
       // ForEach()
-      ForEach(choicenessModels,(item:ChoicenessModels,index:number)=>{
+      ForEach(this.choicenessData,(item:ChoicenessModels,index:number)=>{
         ListItem(){
           Row(){
             Column(){
-              Image(item.img)
+              Image($rawfile(item.img))
                 .width(100)
                 .height(70)
                 .borderRadius(7)
@@ -31,6 +36,13 @@ export struct ChoicenessComponent {
     .divider({strokeWidth:10})
     .width('100%')
     .layoutWeight(1)
+  }
+
+  async  aboutToAppear() {
+    const result = await request.get<string,ReqChoicenessModel>('/jingxuan')
+    this.choicenessData=result.data
+    console.log(JSON.stringify(result))
+    console.log(JSON.stringify(this.choicenessData))
   }
 
 

@@ -165,5 +165,96 @@
         "course": "CULTURE"
       }
     ]
-  }
+  },
+  "kaoyan": {
+    "data": [
+      {
+        "id": "1",
+        "img": "ky1.jpg",
+        "title": "邀好友买考研训练营，得现金红包",
+        "price": "免费"
+      },
+      {
+        "id": "2",
+        "img": "ky2.jpg",
+        "title": "25考研训练营 | 享1年扇贝大会员",
+        "price": "￥499"
+      },
+      {
+        "id": "3",
+        "img": "ky3.jpg",
+        "title": "【新课】学规划 | 25考研英语规划",
+        "price": "免费"
+      },
+      {
+        "id": "4",
+        "img": "ky4.jpg",
+        "title": "刷真题 | 考研阅读刷题课",
+        "price": "免费"
+      },
+      {
+        "id": "5",
+        "img": "ky5.jpg",
+        "title": "学策略 | 考研暑假抢跑攻略",
+        "price": "免费"
+      },
+      {
+        "id": "6",
+        "img": "ky6.jpg",
+        "title": "学技巧 | 考研阅读例证题",
+        "price": "免费"
+      },
+      {
+        "id": "7",
+        "img": "ky7.jpg",
+        "title": "考研体验课 | 7天寻求小蜕变",
+        "price": "免费"
+      },
+      {
+        "id": "8",
+        "img": "ky8.jpg",
+        "title": "考研真题宝 | 帮你吃透真题！",
+        "price": "￥12"
+      }
+    ]
+  },
+  "jingxuan": {
+    "data": [
+
+      {
+        "id": "1",
+        "img":"sourcesChoices01.jpeg",
+        "title":"我用了4年，去弥补18岁的遗憾"
+      },
+      {
+        "id": "2",
+        "img":"sourcesChoices02.jpeg",
+        "title":"每一次推倒重来，只为在历练中成长"
+      },{
+        "id": "3",
+        "img":"sourcesChoices03.jpeg",
+        "title":"逃离精神内耗，29岁再出发"
+      },{
+        "id": "4",
+        "img":"sourcesChoices04.jpeg",
+        "title":"始于低估，奔赴大洋彼岸的约定"
+      },{
+        "id": "5",
+        "img":"sourcesChoices05.jpeg",
+        "title":"广漂四年，在陌生城市寻找自己"
+      },{
+        "id": "6",
+        "img":"sourcesChoices06.png",
+        "title":"做自己的小小英雄，在细水长流的坚持里"
+      },{
+        "id": "7",
+        "img":"sourcesChoices07.jpeg",
+        "title":"28岁，觉醒之后才是真正的人生"
+      },{
+        "id": "8",
+        "img":"sourcesChoices08.jpeg",
+        "title":"未来的地质人，为热爱奔赴山海"
+      }
+    ]
+}
 }
