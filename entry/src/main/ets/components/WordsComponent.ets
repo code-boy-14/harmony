@@ -9,7 +9,7 @@ export struct WordsComponent{
     Column() {
 
       Row() {
-        TextInput({placeholder:'搜索'})
+        TextInput({placeholder:'翻译'})
           .backgroundColor('#eee')
           .layoutWeight(1)
           .height(35)

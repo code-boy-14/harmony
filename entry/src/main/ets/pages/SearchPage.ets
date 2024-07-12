@@ -1,6 +1,6 @@
 import { router } from '@kit.ArkUI';
-import { TranslateResponseModel } from '../models/translateResponseModel';
-import request from '../utils/translate'
+import tran from '../utils/translate'
+import {TranslateModel} from '../models/translateMode'
 
 @Entry
 @Component
@@ -11,6 +11,7 @@ struct SearchPage {
   controller: SearchController = new SearchController()
 
   @State switch:boolean=true
+  @State dir:string=''
 
   @Builder
   headBuilder() {
@@ -93,6 +94,22 @@ struct SearchPage {
           .borderWidth(1)
           .borderColor('#46d9ae')
           .margin({left:15,right:15,top:15})
+          .onChange((value:string)=>{
+            if(this.switch){
+              this.dir="en2zh"
+            }else{
+              this.dir="zh2en"
+            }
+            const payload={
+              source:value,
+              request_id:"demo",
+              trans_type:this.dir,
+              detect:true
+            } as TranslateModel
+
+            // tran.get()
+          })
+
         TextArea()
           .layoutWeight(1)
           .borderWidth(1)
