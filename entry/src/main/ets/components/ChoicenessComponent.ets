@@ -30,7 +30,6 @@ export struct ChoicenessComponent {
         .padding(10)
       })
     }
-    //蒙出来的功能，哈哈哈
     .nestedScroll({scrollForward:NestedScrollMode.PARENT_FIRST,scrollBackward:NestedScrollMode.SELF_FIRST})
     .scrollBar(BarState.Off)
     .divider({strokeWidth:10})
